@@ -1,0 +1,23 @@
+<h1>About page</h1>
+
+<p>USER UID : <%= params[:uid] if params[:uid] %> <br></p>
+
+<p>
+  PRODUITS : <%= params[:data][:products] if params[:data] %>
+  <br>
+  <br><br>
+  STOCK : <%#= params[:data][:stocks].first(2) if params[:data] %>
+
+  <% if params[:data].present? %>
+    <% params[:data][:stocks].first(5).each do |stock| %>
+      <p><%= stock %></p>
+    <% end %>
+  <% else %>
+    <p>pas de résultat pour les stocks</p>
+  <% end %>
+
+</p>
+
+<%= link_to  "Go back to home", root_path %>
+<br><br>
+<%= link_to  "odoo_object_retriever_index", odoo_index_path %>

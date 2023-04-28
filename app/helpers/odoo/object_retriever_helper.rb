@@ -1,0 +1,2 @@
+module Odoo::ObjectRetrieverHelper
+end

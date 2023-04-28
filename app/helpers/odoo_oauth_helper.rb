@@ -1,0 +1,2 @@
+module OdooOauthHelper
+end
