@@ -4,7 +4,7 @@ class ApplicationOdoo < ApplicationService
   def initialize
     @url = ENV["ODOO_URL"]
     @db = ENV["ODOO_DB"]
-    @username = 'nicolas.guimier@drakkar.io'
+    @username = ENV["ODOO_USERNAME"]
     @password = ENV['ODOO_NICOLAS_KEY']
     @uid = 2
   end
