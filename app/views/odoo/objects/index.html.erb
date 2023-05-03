@@ -1,0 +1,61 @@
+<h1></h1>
+
+
+<%= @odoo_object[:products] %>
+
+<br><br><br><br>
+
+
+<!---
+# QUANTITE CUMULEE DANS TOUS LES EMPLACEMENTS DE TOUS LES ENTREPOTS
+# INCLUANT LES ZONES D'ENTREES SORTIES
+# CE QUI EST PHYSIQUEMENT DANS LES ENTREPOTS.
+# (sans les réservations des commandes / sans les prochaines réceptions fournisseurs. )
+qty_available: 41.0
+
+
+# QUANTITE CUMULEE DANS TOUS LES ENTREPOTS MAIS
+# MOINS OUTGOING_QTY (commandes clients en cours)
+# PLUS INCOMING_QTY (commandes fournisseurs en cours)
+virtual_available: 42.0
+
+# OUTGOING_QTY (commandes clients en cours mais pas encore expédiées)
+outgoing_qty: 5.0
+
+# INCOMING_QTY (commandes fournisseurs en cours mais pas encore réceptionnées)
+incoming_qty: 6.0
+
+-->
+<% @odoo_object[:execute_product_template].each do |obj| %>
+  <p>STOCK for PRODUCT.TEMPLATE</p>
+  <% obj.each do |k , v| %>
+    <li><%= k %>: <%= v %></li>
+  <% end %>
+<% end %>
+------------
+
+<% @odoo_object[:stock_per_stock_quant].each do |obj| %>
+  <p>STOCK PER STOCK.QUANT </p>
+  <% obj.each do |k , v| %>
+    <li><%= k %>: <%= v %></li>
+  <% end %>
+<% end %>
+
+<% if @odoo_object[:stock_location].present? %>
+  <% @odoo_object[:stock_location].each do |obj| %>
+    <p>SOTCK LOCATION</p>
+    <% obj.each do |k , v| %>
+      <li><%= k %>: <%= v %></li>
+    <% end %>
+  <% end %>
+<% end %>
+
+
+<% if @odoo_object[:locations].present? %>
+  <% @odoo_object[:locations].each do |obj| %>
+    <p>STOCK LOCATION FOR STOCK.LOCATION</p>
+    <% obj.each do |k , v| %>
+      <li><%= k %>: <%= v %></li>
+    <% end %>
+  <% end %>
+<% end %>

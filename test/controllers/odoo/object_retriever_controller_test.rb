@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Odoo::ObjectRetrieverControllerTest < ActionDispatch::IntegrationTest
+class Odoo::RetrieverControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

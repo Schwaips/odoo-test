@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :odoo do
     get 'odoo_authorization', to: 'odoo_oauth#odoo_authorization'
     # resources :object_retrievers, only: [:index]
-    get 'index', to: 'object_retrievers#index'
+    get 'index', to: 'objects#index'
+    get 'create_sales_order', to: 'objects#create_sales_order'
   end
 end

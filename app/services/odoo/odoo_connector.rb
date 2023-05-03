@@ -4,6 +4,7 @@ module Odoo
 
     def call
       # @odoo
+
       common = XMLRPC::Client.new2("#{@url}/xmlrpc/2/common")
       # Verify the version of the server
       common_info = common.call('version')
